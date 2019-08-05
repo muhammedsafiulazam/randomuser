@@ -1,0 +1,9 @@
+<resources>
+    <string name="userinfo_title">User Info</string>
+    <string name="userinfo_title_name">Name</string>
+    <string name="userinfo_value_name">n/a</string>
+    <string name="userinfo_title_email">Email</string>
+    <string name="userinfo_value_email">n/a</string>
+    <string name="userinfo_title_phone">Phone</string>
+    <string name="userinfo_value_phone">n/a</string>
+</resources>

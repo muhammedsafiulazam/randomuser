@@ -1,0 +1,9 @@
+<resources>
+    <string name="userlist_title">User List</string>
+    <string name="userlist_item_name">n/a</string>
+    <string name="userlist_item_email">n/a</string>
+    <string name="userlist_item_phone">n/a</string>
+    <string name="userlist_label_message">n/a</string>
+    <string name="userlist_label_retry">Retry</string>
+    <string name="userlist_error_users">Sorry! Failed to load users.</string>
+</resources>

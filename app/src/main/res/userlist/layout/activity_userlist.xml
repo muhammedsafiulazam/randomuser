@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature.userlist.UserListActivity">
+    <TextView
+            android:text="@string/userlist_label_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/userlist_txv_message"
+            app:layout_constraintEnd_toEndOf="@+id/userlist_ryv_users"
+            app:layout_constraintStart_toStartOf="@+id/userlist_ryv_users"
+            android:layout_marginStart="@dimen/view_margin_small"
+            app:layout_constraintTop_toTopOf="@+id/userlist_ryv_users"
+            android:layout_marginBottom="@dimen/view_margin_small"
+            app:layout_constraintBottom_toBottomOf="@+id/userlist_ryv_users"
+            android:layout_marginTop="@dimen/view_margin_small" android:layout_marginEnd="@dimen/view_margin_small"
+            style="@style/TextViewMessage"/>
+    <Button
+            android:text="@string/userlist_label_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/userlist_btn_retry"
+            app:layout_constraintEnd_toEndOf="@+id/userlist_txv_message"
+            app:layout_constraintStart_toStartOf="@+id/userlist_txv_message"
+            app:layout_constraintTop_toBottomOf="@+id/userlist_txv_message"
+            android:layout_marginTop="@dimen/view_margin_small"/>
+    <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userlist_pgb_loader" app:layout_constraintEnd_toEndOf="@+id/userlist_ryv_users"
+            app:layout_constraintStart_toStartOf="@+id/userlist_ryv_users"
+            app:layout_constraintBottom_toBottomOf="@+id/userlist_ryv_users"
+            app:layout_constraintTop_toTopOf="@+id/userlist_ryv_users"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/userlist_ryv_users"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
