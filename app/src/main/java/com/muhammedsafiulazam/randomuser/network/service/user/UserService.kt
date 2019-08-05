@@ -1,6 +1,6 @@
 package com.muhammedsafiulazam.randomuser.network.service.user
 
-import com.muhammedsafiulazam.randomuser.MainApplication
+import com.muhammedsafiulazam.randomuser.Knowledge
 import com.muhammedsafiulazam.randomuser.event.Event
 import com.muhammedsafiulazam.randomuser.network.event.UserEventType
 import com.muhammedsafiulazam.randomuser.network.model.Error
@@ -17,13 +17,13 @@ class UserService : IUserService {
      */
     override fun getUsers(count: Int?, gender: String?) {
         // Server manager.
-        val serverManager: IServerManager = MainApplication.getInstance().getServerManager()
+        val serverManager: IServerManager = Knowledge.getServerManager()
 
         // Service call.
         val call: Call<Results> = serverManager.getUserServer().getUsers(count, gender)
 
         // Queue manager.
-        MainApplication.getInstance().getQueueManager().execute(call as Call<Any>, callback = { response: Response<Any> ->
+        Knowledge.getQueueManager().execute(call as Call<Any>, callback = { response: Response<Any> ->
             var results: Results? = null
             var error: Error? = null
 
@@ -34,7 +34,7 @@ class UserService : IUserService {
             }
 
             val event: Event = Event(UserEventType.GET_USERS, results, error)
-            MainApplication.getInstance().getEventManager().send(event)
+            Knowledge.getEventManager().send(event)
         })
     }
 }

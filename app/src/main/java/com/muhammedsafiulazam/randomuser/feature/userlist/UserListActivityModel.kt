@@ -1,7 +1,7 @@
 package com.muhammedsafiulazam.randomuser.feature.userlist
 
 import android.text.TextUtils
-import com.muhammedsafiulazam.randomuser.MainApplication
+import com.muhammedsafiulazam.randomuser.Knowledge
 import com.muhammedsafiulazam.randomuser.R
 import com.muhammedsafiulazam.randomuser.activity.BaseActivityModel
 import com.muhammedsafiulazam.randomuser.event.Event
@@ -42,28 +42,28 @@ class UserListActivityModel : BaseActivityModel() {
     }
 
     private fun subscribeToEvents() {
-        mReceiveChannel = MainApplication.getInstance().getEventManager().subscribe( callback = { event : Event -> Unit
+        mReceiveChannel = Knowledge.getEventManager().subscribe( callback = { event : Event -> Unit
             onReceiveEvents(event)
         })
     }
 
     private fun unsubscribeFromEvents() {
-        MainApplication.getInstance().getEventManager().unsubscribe(mReceiveChannel)
+        Knowledge.getEventManager().unsubscribe(mReceiveChannel)
     }
 
     private fun loadDataBusy(busy: Boolean) {
         val event: Event = Event(UserListEventType.LOAD_DATA_BUSY, busy, null)
-        MainApplication.getInstance().getEventManager().send(event)
+        Knowledge.getEventManager().send(event)
     }
 
     private fun loadDataError(error: String?) {
         val event: Event = Event(UserListEventType.LOAD_DATA_ERROR, error, null)
-        MainApplication.getInstance().getEventManager().send(event)
+        Knowledge.getEventManager().send(event)
     }
 
     private fun loadDataResponse(response: List<User>) {
         val event: Event = Event(UserListEventType.LOAD_DATA_RESPONSE, response, null)
-        MainApplication.getInstance().getEventManager().send(event)
+        Knowledge.getEventManager().send(event)
     }
 
     fun loadDataRequest() {
@@ -71,7 +71,7 @@ class UserListActivityModel : BaseActivityModel() {
         loadDataBusy(true)
 
         // Call for users.
-        MainApplication.getInstance().getServiceManager().getUserService().getUsers(COUNT_USERS, null)
+        Knowledge.getServiceManager().getUserService().getUsers(COUNT_USERS, null)
     }
 
     fun onReceiveEvents(event: Event) {

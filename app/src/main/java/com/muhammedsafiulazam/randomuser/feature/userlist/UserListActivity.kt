@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.muhammedsafiulazam.randomuser.MainApplication
+import com.muhammedsafiulazam.randomuser.Knowledge
 import com.muhammedsafiulazam.randomuser.R
 import com.muhammedsafiulazam.randomuser.activity.BaseActivity
 import com.muhammedsafiulazam.randomuser.event.Event
@@ -49,13 +49,13 @@ class UserListActivity : BaseActivity(), IUserListListener {
     }
 
     private fun subscribeToEvents() {
-        mReceiveChannel = MainApplication.getInstance().getEventManager().subscribe( callback = { event : Event -> Unit
+        mReceiveChannel = Knowledge.getEventManager().subscribe( callback = { event : Event -> Unit
             onReceiveEvents(event)
         })
     }
 
     private fun unsubscribeFromEvents() {
-        MainApplication.getInstance().getEventManager().unsubscribe(mReceiveChannel)
+        Knowledge.getEventManager().unsubscribe(mReceiveChannel)
     }
 
     fun updateLoader(show: Boolean) {
@@ -97,12 +97,12 @@ class UserListActivity : BaseActivity(), IUserListListener {
     }
 
     override fun onClickUser(user: User) {
-        MainApplication.getInstance().getActivityManager().loadActivity(UserInfoActivity::class.java, user)
+        Knowledge.getActivityManager().loadActivity(UserInfoActivity::class.java, user)
     }
 
     private fun onClickRetry() {
         val event: Event = Event(UserListEventType.LOAD_DATA_REQUEST, null, null)
-        MainApplication.getInstance().getEventManager().send(event)
+        Knowledge.getEventManager().send(event)
     }
 
     override fun onDestroy() {

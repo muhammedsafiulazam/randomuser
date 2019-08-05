@@ -1,6 +1,6 @@
 package com.muhammedsafiulazam.randomuser.network.server.user
 
-import com.muhammedsafiulazam.randomuser.MainApplication
+import com.muhammedsafiulazam.randomuser.Knowledge
 
 class UserServer {
     companion object {
@@ -9,7 +9,7 @@ class UserServer {
          * @return user server
          */
         fun getUserServer() : IUserServer {
-            return MainApplication.getInstance().getRetrofitManager().getRetrofit().create(IUserServer::class.java)
+            return Knowledge.getRetrofitManager().getRetrofit().create(IUserServer::class.java)
         }
     }
 }

@@ -1,18 +1,17 @@
 package com.muhammedsafiulazam.randomuser.feature.userlist
 
-import androidx.appcompat.widget.AppCompatTextView
 import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
 import com.muhammedsafiulazam.randomuser.R
 import com.muhammedsafiulazam.randomuser.network.model.user.User
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class UserViewHolder(view: View, userListListener: IUserListListener) : RecyclerView.ViewHolder(view){
     private var mUser: User? = null;

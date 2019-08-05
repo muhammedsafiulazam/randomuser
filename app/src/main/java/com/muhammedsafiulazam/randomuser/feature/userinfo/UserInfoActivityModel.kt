@@ -1,6 +1,5 @@
 package com.muhammedsafiulazam.randomuser.feature.userinfo
 
-import android.text.TextUtils
 import com.muhammedsafiulazam.randomuser.activity.BaseActivityModel
 
 /**

@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_userinfo.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class UserInfoActivity : BaseActivity() {
     private lateinit var mUser: User
