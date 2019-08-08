@@ -50,10 +50,22 @@ open class BaseActivity : AppCompatActivity() {
         Knowledge.getActivityManager().onStartActivity(this)
     }
 
-    override fun onStop() {
-        super.onStop()
-        mActivityModel?.onStopActivity()
+    override fun onResume() {
+        super.onResume()
+        mActivityModel?.onResumeActivity()
+        Knowledge.getActivityManager().onStartActivity(this)
+    }
+
+    override fun onPause() {
         Knowledge.getActivityManager().onStopActivity(this)
+        mActivityModel?.onPauseActivity()
+        super.onPause()
+    }
+
+    override fun onStop() {
+        Knowledge.getActivityManager().onStopActivity(this)
+        mActivityModel?.onStopActivity()
+        super.onStop()
     }
 
     override fun onDestroy() {

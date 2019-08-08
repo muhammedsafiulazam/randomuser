@@ -24,6 +24,12 @@ open class BaseActivityModel : ViewModel() {
     open fun onStartActivity() {
     }
 
+    open fun onResumeActivity() {
+    }
+
+    open fun onPauseActivity() {
+    }
+
     open fun onStopActivity() {
     }
 
